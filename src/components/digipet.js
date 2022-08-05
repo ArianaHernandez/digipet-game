@@ -21,17 +21,29 @@ export const Digipet = () => {
 	}
 	const giveWater = () => {
 		setThirstCount(thirstCount+1);
+		send(ACTIONS.moodChange({hunger: hungerCount, thirst: thirstCount, amusement: amusementCount}));
 	}
 	const playWith = () => {
 		setAmusementCount(amusementCount+1);
+		send(ACTIONS.moodChange({hunger: hungerCount, thirst: thirstCount, amusement: amusementCount}));
 	}
 
 
 	useEffect(() => {
+		if(hungerCount >= 100 && thirstCount >= 100 && amusementCount >= 100){
+			send(ACTIONS.moodChange({hunger: hungerCount, thirst: thirstCount, amusement: amusementCount}));
+			alert("He's happy! You win!");
+		  }else if(hungerCount <= 0 && thirstCount <= 0 && amusementCount <= 0) {
+			send(ACTIONS.moodChange({hunger: hungerCount, thirst: thirstCount, amusement: amusementCount}));
+			alert("He's so sad that he ranaway :(");
+		  }
 		const lowerHunger = setInterval(() => {
 			setHungerCount(hungerCount-1);
 		  }, 1000);
+
 		  return () => clearInterval(lowerHunger);
+
+		 
 	})
 
 	return (

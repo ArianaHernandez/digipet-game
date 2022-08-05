@@ -44,14 +44,14 @@ const createInitialContext = ({  hunger = 0, thirst = 50, amusement = 70 } = {})
 
 
 const checkIfThirsty = (ctx, {payload}) => {
-	return payload.thirst < payload.hunger || payload.thirst < payload.amusement
+	return payload.thirst < payload.hunger && payload.thirst < payload.amusement
 	
 }
 const checkIfHungry = (ctx, {payload}) => {
-	return payload.hunger < payload.thirst || payload.hunger < payload.amusement
+	return payload.hunger < payload.thirst && payload.hunger < payload.amusement
 }
 const checkIfBored = (ctx, {payload}) => {
-	return payload.amusement < payload.thirst || payload.amusement < payload.hunger
+	return payload.amusement < payload.thirst && payload.amusement < payload.hunger
 }
 const checkIfRanAway = (ctx, {payload}) => {
 	return payload.hunger <= 0 && payload.thirst <= 0 && payload.amusement <= 0
