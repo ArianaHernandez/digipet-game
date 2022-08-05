@@ -6,14 +6,14 @@ import cutlery from '../images/cutlery.png'
 import drink from '../images/drink.png'
 import toy from '../images/toy.png'
 import styled from 'styled-components'
-import { useMachine, triviaMachine, ACTIONS } from '../state/petMachine'
+import { useMachine, petMachine, ACTIONS } from '../state/petMachine'
 
 export const Digipet = () => {
 
 	const [thirstCount, setThirstCount] = useState(50)
 	const [hungerCount, setHungerCount] = useState(10)
 	const [amusementCount, setAmusementCount] = useState(70)
-	const [state, send] = useMachine(triviaMachine)
+	const [state, send] = useMachine(petMachine)
 
 	const feed = () => {
 		setHungerCount(hungerCount+1);
