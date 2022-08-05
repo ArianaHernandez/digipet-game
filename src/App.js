@@ -1,20 +1,20 @@
 import styled from 'styled-components'
-import { Trivia } from './components/Trivia'
+import { Digipet } from './components/digipet'
 // import { CriteriaForm } from './components/Form'
 
 function App() {
   return (
-    <TriviaPage>
-			<Heading><h1>Nerd Trivia</h1></Heading>
+    <DigipetPage>
+			<Heading><h1>Digital Pet</h1></Heading>
 			{/* <CriteriaForm /> */}
-			<Trivia />
-    </TriviaPage>
+			<Digipet />
+    </DigipetPage>
   );
 }
 
 export default App;
 
-const TriviaPage = styled.main `
+const DigipetPage = styled.main `
 	background-color: #282c34;
 	min-height: 100vh;
 	display: flex;
